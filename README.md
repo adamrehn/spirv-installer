@@ -53,7 +53,7 @@ Assume we have the following OpenCL C code in the file `example-c.cl`:
 __kernel void example()
 {
     int globalThreadIdx = get_global_id(0);
-    printf("This is thread %s", globalThreadIdx);
+    printf("This is thread %d", globalThreadIdx);
 }
 ```
 
@@ -80,7 +80,7 @@ Assume we have the following OpenCL C++ code in the file `example-cxx.cl`:
 __kernel void example()
 {
     int globalThreadIdx = cl::get_global_id(0);
-    cl::printf("This is thread %s", globalThreadIdx);
+    cl::printf("This is thread %d", globalThreadIdx);
 }
 ```
 
