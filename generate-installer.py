@@ -213,12 +213,9 @@ def createInstaller(rootDir):
 	
 	# Under Windows, we use wrappers in place of symlinks for the binaries
 	if platform.system() == 'Windows':
-		createWrapper(wrapperDir + '/spirv-clang', spirvDirTemplate + '/bin/spirv-clang', '')
-		createWrapper(wrapperDir + '/spirv-as',    spirvDirTemplate + '/bin/spirv-as',    '')
-		createWrapper(wrapperDir + '/spirv-cfg',   spirvDirTemplate + '/bin/spirv-cfg',   '')
-		createWrapper(wrapperDir + '/spirv-dis',   spirvDirTemplate + '/bin/spirv-dis',   '')
-		createWrapper(wrapperDir + '/spirv-opt',   spirvDirTemplate + '/bin/spirv-opt',   '')
-		createWrapper(wrapperDir + '/spirv-val',   spirvDirTemplate + '/bin/spirv-val',   '')
+		binaries.append('spirv-clang')
+		for binary in binaries:
+			createWrapper(wrapperDir + '/' + binary, spirvDirTemplate + '/bin/' + binary, '')
 	
 	# Generate the installer package
 	if platform.system() == 'Windows':
